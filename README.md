@@ -2,7 +2,7 @@
 
 A single-page developer portfolio built around a blueprint/schematic visual theme — grid backdrops, crop marks, a title block footer, and an animated "system overview" diagram that maps how I work: developer → modules → stack.
 
-**Live site:** _add your deployed URL here_
+**Live site:** [View on GitHub.io](https://dlarejenac.github.io/portfolio/)
 **CV:** [View on Google Drive](https://drive.google.com/file/d/1LoQux0az_thcZm4sx9ORawGZr60dvKFl/view?usp=sharing)
 
 ---
