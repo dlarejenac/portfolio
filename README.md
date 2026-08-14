@@ -13,11 +13,10 @@ I'm a web developer specializing in Laravel and Vue.js, focused on the structura
 
 ## Sections
 
-- **Hero** — name, role, and an animated SVG diagram of my typical system architecture (Laravel API ↔ Vue.js frontend)
-- **About** — a short summary plus a quick-stats strip (systems shipped, primary framework, frontend of choice)
-- **Experience** — role history at Elite Software and Data Security Inc. and Go8 Technology Inc.
-- **Stack** — a chip-style legend of tools and technologies I use
-- **Contact** — email, LinkedIn, GitHub, and location, laid out like a drafting title block
+- **About** — A short summary plus a quick-stats strip (systems shipped, primary framework, frontend of choice)
+- **Experience** — Role history at Elite Software and Data Security Inc. and Go8 Technology Inc.
+- **Stack** — A chip-style legend of tools and technologies I use
+- **Contact** — Email, LinkedIn, GitHub, and location
 
 ## Tech Stack
 
