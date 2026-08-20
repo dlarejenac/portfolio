@@ -5,13 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jerald David Cane - Portfolio</title>
   <meta name="description" content="Personal portfolio — about, experience, stack, and contact.">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -135,7 +131,10 @@
     .bg-grid {
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(var(--line) 1px, transparent 1px);
+      background-image: radial-gradient(
+        var(--line) 1px,
+        transparent 1px
+      );
       background-size: 34px 34px;
       opacity: 0.55;
       mask-image: radial-gradient(
@@ -205,7 +204,9 @@
       border-right: 1px solid var(--line);
       background: var(--bg);
       z-index: 50;
-      transition: background 0.35s ease, border-color 0.35s ease;
+      transition:
+        background 0.35s ease,
+        border-color 0.35s ease;
     }
 
     .rail-nav {
@@ -410,7 +411,9 @@
       border: 1px solid var(--line);
       background: var(--bg-panel);
       box-shadow: var(--shadow);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
     }
 
     .hero-photo:hover .hero-photo-frame {
@@ -443,7 +446,11 @@
       font-weight: 700;
       font-size: 56px;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--ink), var(--accent));
+      background: linear-gradient(
+        135deg,
+        var(--ink),
+        var(--accent)
+      );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -507,11 +514,28 @@
 
     .hero .role-cv {
       color: var(--ink-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       transition: color 0.15s ease;
     }
 
     .hero .role-cv:hover {
       color: var(--accent);
+    }
+
+    .hero .role-cv .cv-arrow {
+      font-size: 12px;
+      opacity: 0.55;
+      transform: translate(0, 0);
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .hero .role-cv:hover .cv-arrow {
+      opacity: 1;
+      transform: translate(2px, -2px);
     }
 
     .hero p.tagline {
@@ -743,7 +767,9 @@
       padding-bottom: 4px;
       margin-bottom: 36px;
       word-break: break-all;
-      transition: color 0.15s, letter-spacing 0.25s;
+      transition:
+        color 0.15s,
+        letter-spacing 0.25s;
     }
 
     .contact-main a.email:hover {
@@ -764,7 +790,9 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: color 0.15s, transform 0.15s;
+      transition:
+        color 0.15s,
+        transform 0.15s;
     }
 
     .link-row a:hover {
@@ -953,31 +981,52 @@
         <div class="section-inner reveal in-view">
           <div class="hero-grid">
             <div>
-              <div class="hero-badge" id="availability-badge"></div>
+              <div
+                class="hero-badge"
+                id="availability-badge"
+              ></div>
 
               <h1 id="hero-heading"></h1>
 
-              <div class="role" id="hero-role"></div>
+              <div
+                class="role"
+                id="hero-role"
+              ></div>
 
-              <p class="tagline" id="hero-tagline"></p>
+              <p
+                class="tagline"
+                id="hero-tagline"
+              ></p>
 
               <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary">
+                <a
+                  href="#contact"
+                  class="btn btn-primary"
+                >
                   Get in touch
                 </a>
 
-                <a href="#experience" class="btn btn-ghost">
+                <a
+                  href="#experience"
+                  class="btn btn-ghost"
+                >
                   See experience
                 </a>
               </div>
             </div>
 
-            <div class="hero-photo" id="hero-photo"></div>
+            <div
+              class="hero-photo"
+              id="hero-photo"
+            ></div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="about">
+      <section
+        class="section"
+        id="about"
+      >
         <div class="ghost-num">01</div>
 
         <div class="section-inner">
@@ -986,14 +1035,23 @@
           </div>
 
           <div class="about-grid">
-            <div id="about-copy" class="reveal"></div>
+            <div
+              id="about-copy"
+              class="reveal"
+            ></div>
 
-            <dl class="fact-list reveal" id="about-facts"></dl>
+            <dl
+              class="fact-list reveal"
+              id="about-facts"
+            ></dl>
           </div>
         </div>
       </section>
 
-      <section class="section" id="experience">
+      <section
+        class="section"
+        id="experience"
+      >
         <div class="ghost-num">02</div>
 
         <div class="section-inner">
@@ -1001,11 +1059,17 @@
             <span class="num">02</span> — Experience
           </div>
 
-          <div class="timeline" id="experience-list"></div>
+          <div
+            class="timeline"
+            id="experience-list"
+          ></div>
         </div>
       </section>
 
-      <section class="section" id="stack">
+      <section
+        class="section"
+        id="stack"
+      >
         <div class="ghost-num">03</div>
 
         <div class="section-inner">
@@ -1013,7 +1077,10 @@
             <span class="num">03</span> — Stack
           </div>
 
-          <div class="stack-grid" id="stack-list"></div>
+          <div
+            class="stack-grid"
+            id="stack-list"
+          ></div>
         </div>
       </section>
 
@@ -1044,7 +1111,11 @@
 
       <footer>
         <span id="footer-note"></span>
-        <span class="back-top" id="back-top">
+
+        <span
+          class="back-top"
+          id="back-top"
+        >
           Back to top ↑
         </span>
       </footer>
@@ -1100,7 +1171,7 @@
           company: {
             name: "Elite Software and Data Security Inc.",
             details: "Manila, Philippines · Full-time · Hybrid",
-            url: "https://elitesoftwareanddatasecurity.com/"
+            url: "https://www.linkedin.com/company/99711045/"
           },
 
           period: "June 2025 — Present",
@@ -1118,7 +1189,7 @@
           company: {
             name: "Go8 Technology Inc.",
             details: "Parañaque, Philippines · Internship · On-Site",
-            url: "https://go8technology.com/"
+            url: "https://www.linkedin.com/company/106451404/"
           },
 
           period: "March 2024 – May 2024",
@@ -1198,15 +1269,23 @@
       },
 
       footerNote:
-        "Built by Jerald David Cane · " + new Date().getFullYear()
+        "Built by Jerald David Cane · " +
+        new Date().getFullYear()
     };
 
     (function render() {
-      const $ = (selector, context = document) =>
-        context.querySelector(selector);
+      const $ = (
+        selector,
+        context = document
+      ) => context.querySelector(selector);
 
-      const create = (tag, cls, html) => {
-        const element = document.createElement(tag);
+      const create = (
+        tag,
+        cls,
+        html
+      ) => {
+        const element =
+          document.createElement(tag);
 
         if (cls) {
           element.className = cls;
@@ -1220,13 +1299,16 @@
       };
 
       const esc = (str) =>
-        String(str).replace(/[&<>"']/g, (char) => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;"
-        }[char]));
+        String(str).replace(
+          /[&<>"']/g,
+          (char) => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+          }[char])
+        );
 
       const sections = [
         {
@@ -1250,7 +1332,10 @@
       const railNav = $("#rail-nav");
 
       sections.forEach((section) => {
-        const button = create("button", "rail-dot");
+        const button = create(
+          "button",
+          "rail-dot"
+        );
 
         button.setAttribute(
           "data-label",
@@ -1262,38 +1347,49 @@
           "Go to " + section.label
         );
 
-        button.dataset.target = section.id;
+        button.dataset.target =
+          section.id;
 
-        button.addEventListener("click", () => {
-          document
-            .getElementById(section.id)
-            .scrollIntoView({
-              behavior: "smooth"
-            });
-        });
+        button.addEventListener(
+          "click",
+          () => {
+            document
+              .getElementById(section.id)
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+          }
+        );
 
         railNav.appendChild(button);
       });
 
       if (CONFIG.availability) {
-        const badge = $("#availability-badge");
+        const badge =
+          $("#availability-badge");
 
         badge.innerHTML =
           '<span class="dot"></span>' +
           esc(CONFIG.availability);
       } else {
-        $("#availability-badge").style.display = "none";
+        $("#availability-badge")
+          .style.display = "none";
       }
 
-      const heading = $("#hero-heading");
+      const heading =
+        $("#hero-heading");
 
       heading.innerHTML =
         esc(CONFIG.heroHeading.line1) +
-        (CONFIG.heroHeading.line2
-          ? "<br>" + esc(CONFIG.heroHeading.line2)
-          : "");
+        (
+          CONFIG.heroHeading.line2
+            ? "<br>" +
+              esc(CONFIG.heroHeading.line2)
+            : ""
+        );
 
-      const role = $("#hero-role");
+      const role =
+        $("#hero-role");
 
       const roleText = create(
         "span",
@@ -1314,13 +1410,35 @@
 
         const cvLink = create(
           "a",
-          "role-cv",
+          "role-cv"
+        );
+
+        cvLink.href =
+          CONFIG.contact.cv.url;
+
+        cvLink.target = "_blank";
+        cvLink.rel =
+          "noopener noreferrer";
+
+        const cvLabel = create(
+          "span",
+          null,
           esc(CONFIG.contact.cv.label)
         );
 
-        cvLink.href = CONFIG.contact.cv.url;
-        cvLink.target = "_blank";
-        cvLink.rel = "noopener noreferrer";
+        const cvArrow = create(
+          "span",
+          "cv-arrow",
+          "↗"
+        );
+
+        cvArrow.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        cvLink.appendChild(cvLabel);
+        cvLink.appendChild(cvArrow);
 
         role.appendChild(cvLink);
       }
@@ -1328,20 +1446,28 @@
       $("#hero-tagline").textContent =
         CONFIG.tagline;
 
-      const photoSlot = $("#hero-photo");
+      const photoSlot =
+        $("#hero-photo");
 
-      if (CONFIG.photo && CONFIG.photo.url) {
+      if (
+        CONFIG.photo &&
+        CONFIG.photo.url
+      ) {
         const frame = create(
           "div",
           "hero-photo-frame"
         );
 
-        const image = create("img");
+        const image =
+          create("img");
 
-        image.src = CONFIG.photo.url;
+        image.src =
+          CONFIG.photo.url;
+
         image.alt =
           CONFIG.photo.alt ||
           CONFIG.name;
+
         image.loading = "eager";
 
         frame.appendChild(image);
@@ -1369,167 +1495,187 @@
         photoSlot.appendChild(frame);
       }
 
-      const aboutCopy = $("#about-copy");
+      const aboutCopy =
+        $("#about-copy");
 
-      CONFIG.about.paragraphs.forEach((paragraph) => {
-        aboutCopy.appendChild(
-          create(
-            "p",
-            null,
-            esc(paragraph)
-          )
-        );
-      });
+      CONFIG.about.paragraphs.forEach(
+        (paragraph) => {
+          aboutCopy.appendChild(
+            create(
+              "p",
+              null,
+              esc(paragraph)
+            )
+          );
+        }
+      );
 
-      const aboutFacts = $("#about-facts");
+      const aboutFacts =
+        $("#about-facts");
 
-      CONFIG.about.facts.forEach((fact) => {
-        const wrapper = create(
-          "div",
-          "fact"
-        );
+      CONFIG.about.facts.forEach(
+        (fact) => {
+          const wrapper = create(
+            "div",
+            "fact"
+          );
 
-        wrapper.appendChild(
-          create(
-            "dt",
-            null,
-            esc(fact.label)
-          )
-        );
+          wrapper.appendChild(
+            create(
+              "dt",
+              null,
+              esc(fact.label)
+            )
+          );
 
-        wrapper.appendChild(
-          create(
-            "dd",
-            null,
-            esc(fact.value)
-          )
-        );
+          wrapper.appendChild(
+            create(
+              "dd",
+              null,
+              esc(fact.value)
+            )
+          );
 
-        aboutFacts.appendChild(wrapper);
-      });
+          aboutFacts.appendChild(
+            wrapper
+          );
+        }
+      );
 
       const experienceList =
         $("#experience-list");
 
-      CONFIG.experience.forEach((job) => {
-        const row = create(
-          "div",
-          "job reveal"
-        );
-
-        const period = create(
-          "div",
-          "job-period",
-          esc(job.period)
-        );
-
-        const body = create("div");
-
-        body.appendChild(
-          create(
+      CONFIG.experience.forEach(
+        (job) => {
+          const row = create(
             "div",
-            "job-role",
-            esc(job.role)
-          )
-        );
-
-        const company = create(
-          "div",
-          "job-company"
-        );
-
-        if (
-          job.company &&
-          job.company.url
-        ) {
-          const companyLink = create(
-            "a",
-            "job-company-link",
-            esc(job.company.name)
+            "job reveal"
           );
 
-          companyLink.href =
-            job.company.url;
-
-          companyLink.target = "_blank";
-          companyLink.rel =
-            "noopener noreferrer";
-
-          company.appendChild(
-            companyLink
+          const period = create(
+            "div",
+            "job-period",
+            esc(job.period)
           );
 
-          company.appendChild(
-            document.createTextNode(
-              " · " +
-              job.company.details
-            )
-          );
-        } else {
-          company.textContent =
-            job.company;
-        }
+          const body =
+            create("div");
 
-        body.appendChild(company);
-
-        const points = create(
-          "ul",
-          "job-points"
-        );
-
-        job.points.forEach((point) => {
-          points.appendChild(
+          body.appendChild(
             create(
-              "li",
-              null,
-              esc(point)
+              "div",
+              "job-role",
+              esc(job.role)
             )
           );
-        });
 
-        body.appendChild(points);
+          const company = create(
+            "div",
+            "job-company"
+          );
 
-        row.appendChild(period);
-        row.appendChild(body);
+          if (
+            job.company &&
+            job.company.url
+          ) {
+            const companyLink =
+              create(
+                "a",
+                "job-company-link",
+                esc(job.company.name)
+              );
 
-        experienceList.appendChild(row);
-      });
+            companyLink.href =
+              job.company.url;
+
+            companyLink.target =
+              "_blank";
+
+            companyLink.rel =
+              "noopener noreferrer";
+
+            company.appendChild(
+              companyLink
+            );
+
+            company.appendChild(
+              document.createTextNode(
+                " · " +
+                job.company.details
+              )
+            );
+          } else {
+            company.textContent =
+              job.company;
+          }
+
+          body.appendChild(company);
+
+          const points = create(
+            "ul",
+            "job-points"
+          );
+
+          job.points.forEach(
+            (point) => {
+              points.appendChild(
+                create(
+                  "li",
+                  null,
+                  esc(point)
+                )
+              );
+            }
+          );
+
+          body.appendChild(points);
+
+          row.appendChild(period);
+          row.appendChild(body);
+
+          experienceList.appendChild(row);
+        }
+      );
 
       const stackList =
         $("#stack-list");
 
-      CONFIG.stack.forEach((group) => {
-        const wrapper = create(
-          "div",
-          "reveal"
-        );
-
-        wrapper.appendChild(
-          create(
+      CONFIG.stack.forEach(
+        (group) => {
+          const wrapper = create(
             "div",
-            "stack-cat-label",
-            esc(group.category)
-          )
-        );
+            "reveal"
+          );
 
-        const tagRow = create(
-          "div",
-          "tag-row"
-        );
-
-        group.items.forEach((item) => {
-          tagRow.appendChild(
+          wrapper.appendChild(
             create(
-              "span",
-              "tag",
-              esc(item)
+              "div",
+              "stack-cat-label",
+              esc(group.category)
             )
           );
-        });
 
-        wrapper.appendChild(tagRow);
-        stackList.appendChild(wrapper);
-      });
+          const tagRow = create(
+            "div",
+            "tag-row"
+          );
+
+          group.items.forEach(
+            (item) => {
+              tagRow.appendChild(
+                create(
+                  "span",
+                  "tag",
+                  esc(item)
+                )
+              );
+            }
+          );
+
+          wrapper.appendChild(tagRow);
+          stackList.appendChild(wrapper);
+        }
+      );
 
       const emailElement =
         $("#contact-email");
@@ -1538,31 +1684,39 @@
         CONFIG.contact.email;
 
       emailElement.href =
-        "mailto:" + CONFIG.contact.email;
+        "mailto:" +
+        CONFIG.contact.email;
 
       const linkRow =
         $("#contact-links");
 
-      CONFIG.contact.links.forEach((link) => {
-        const anchor = create(
-          "a",
-          null,
-          esc(link.label)
-        );
+      CONFIG.contact.links.forEach(
+        (link) => {
+          const anchor = create(
+            "a",
+            null,
+            esc(link.label)
+          );
 
-        anchor.href = link.url;
-        anchor.target = "_blank";
-        anchor.rel =
-          "noopener noreferrer";
+          anchor.href =
+            link.url;
 
-        linkRow.appendChild(anchor);
-      });
+          anchor.target =
+            "_blank";
+
+          anchor.rel =
+            "noopener noreferrer";
+
+          linkRow.appendChild(anchor);
+        }
+      );
 
       $("#footer-note").textContent =
         CONFIG.footerNote;
 
       document.title =
-        CONFIG.name + " — Portfolio";
+        CONFIG.name +
+        " — Portfolio";
 
       const root =
         document.documentElement;
@@ -1577,7 +1731,9 @@
           ? "dark"
           : "light";
 
-      function applyTheme(selectedTheme) {
+      function applyTheme(
+        selectedTheme
+      ) {
         theme = selectedTheme;
 
         root.setAttribute(
@@ -1651,10 +1807,11 @@
       );
 
       const sectionElements =
-        sections.map((section) =>
-          document.getElementById(
-            section.id
-          )
+        sections.map(
+          (section) =>
+            document.getElementById(
+              section.id
+            )
         );
 
       function onScroll() {
@@ -1668,21 +1825,26 @@
 
         const percentage =
           documentHeight > 0
-            ? (scrollTop /
-                documentHeight) *
-              100
+            ? (
+                scrollTop /
+                documentHeight
+              ) * 100
             : 0;
 
-        if (window.innerWidth <= 860) {
+        if (
+          window.innerWidth <= 860
+        ) {
           progress.style.width =
             percentage + "%";
 
-          progress.style.height = "";
+          progress.style.height =
+            "";
         } else {
           progress.style.height =
             percentage + "%";
 
-          progress.style.width = "";
+          progress.style.width =
+            "";
         }
 
         let activeIndex = 0;
@@ -1690,7 +1852,7 @@
         const atBottom =
           Math.ceil(
             scrollTop +
-              window.innerHeight
+            window.innerHeight
           ) >=
           document.documentElement
             .scrollHeight -
@@ -1705,12 +1867,14 @@
             (element, index) => {
               if (
                 element &&
-                element.getBoundingClientRect()
+                element
+                  .getBoundingClientRect()
                   .top <=
                   window.innerHeight *
                     0.4
               ) {
-                activeIndex = index;
+                activeIndex =
+                  index;
               }
             }
           );
