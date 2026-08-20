@@ -98,6 +98,10 @@
       position: relative;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -874,6 +878,184 @@
       transform: translate(2px, -2px);
     }
 
+    .cv-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.72);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+    }
+
+    .cv-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .cv-modal-panel {
+      width: min(1100px, 100%);
+      height: min(900px, calc(100vh - 48px));
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(12px) scale(0.985);
+      transition:
+        transform 0.25s ease,
+        background 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .cv-modal.is-open .cv-modal-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .cv-modal-header {
+      min-height: 58px;
+      padding: 10px 14px 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .cv-modal-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .cv-modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cv-modal-open {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 7px 10px;
+      transition:
+        color 0.15s,
+        border-color 0.15s,
+        background 0.15s;
+    }
+
+    .cv-modal-open:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .cv-modal-close {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: transparent;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      transition:
+        color 0.15s,
+        border-color 0.15s,
+        background 0.15s,
+        transform 0.15s;
+    }
+
+    .cv-modal-close:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: rotate(4deg);
+    }
+
+    .cv-modal-body {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      background: var(--bg-panel);
+    }
+
+    .cv-modal-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #FFFFFF;
+    }
+
+    .cv-modal-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      background: var(--bg-panel);
+      color: var(--ink-soft);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .cv-modal-fallback.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cv-modal-fallback-content {
+      max-width: 420px;
+    }
+
+    .cv-modal-fallback-content p {
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .cv-modal-fallback-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 16px;
+      border-radius: 7px;
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 600;
+      transition:
+        background 0.15s,
+        transform 0.15s;
+    }
+
+    .cv-modal-fallback-link:hover {
+      background: var(--accent);
+      color: var(--accent-ink);
+      transform: translateY(-2px);
+    }
+
     footer {
       padding: 32px var(--edge-pad) 40px calc(var(--edge-pad) + 12px);
       display: flex;
@@ -991,6 +1173,27 @@
 
       .hero .role {
         align-items: flex-start;
+      }
+
+      .cv-modal {
+        padding: 0;
+      }
+
+      .cv-modal-panel {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+
+      .cv-modal-header {
+        padding-left: 16px;
+      }
+
+      .cv-modal-open {
+        display: none;
       }
     }
   </style>
@@ -1190,6 +1393,79 @@
     </main>
   </div>
 
+  <div
+    class="cv-modal"
+    id="cv-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cv-modal-title"
+    aria-hidden="true"
+  >
+    <div class="cv-modal-panel">
+      <div class="cv-modal-header">
+        <div
+          class="cv-modal-title"
+          id="cv-modal-title"
+        >
+          Curriculum Vitae
+        </div>
+
+        <div class="cv-modal-actions">
+          <a
+            class="cv-modal-open"
+            id="cv-modal-open"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open in Google Drive ↗
+          </a>
+
+          <button
+            class="cv-modal-close"
+            id="cv-modal-close"
+            type="button"
+            aria-label="Close Curriculum Vitae"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+
+      <div class="cv-modal-body">
+        <iframe
+          class="cv-modal-frame"
+          id="cv-modal-frame"
+          title="Curriculum Vitae"
+          loading="lazy"
+          allow="fullscreen"
+        ></iframe>
+
+        <div
+          class="cv-modal-fallback"
+          id="cv-modal-fallback"
+        >
+          <div class="cv-modal-fallback-content">
+            <p>
+              The CV preview could not be displayed here.
+              You can still open the document directly in Google Drive.
+            </p>
+
+            <a
+              class="cv-modal-fallback-link"
+              id="cv-modal-fallback-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Curriculum Vitae ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const CONFIG = {
       name: "Jerald David Cane",
@@ -1319,7 +1595,8 @@
 
         cv: {
           label: "Curriculum Vitae",
-          url: "https://drive.google.com/file/d/1LoQux0az_thcZm4sx9ORawGZr60dvKFl/view?usp=sharing"
+          url: "https://drive.google.com/file/d/1LoQux0az_thcZm4sx9ORawGZr60dvKFl/view?usp=sharing",
+          embedUrl: "https://drive.google.com/file/d/1LoQux0az_thcZm4sx9ORawGZr60dvKFl/preview"
         },
 
         links: [
@@ -1497,8 +1774,14 @@
         );
 
         cvLink.href = CONFIG.contact.cv.url;
-        cvLink.target = "_blank";
-        cvLink.rel = "noopener noreferrer";
+        cvLink.setAttribute(
+          "data-cv-trigger",
+          "true"
+        );
+        cvLink.setAttribute(
+          "aria-label",
+          "Open Curriculum Vitae"
+        );
 
         const cvLabel = create(
           "span",
@@ -1791,9 +2074,25 @@
           );
 
           anchor.href = link.url;
-          anchor.target = "_blank";
-          anchor.rel =
-            "noopener noreferrer";
+
+          if (
+            link.label ===
+            CONFIG.contact.cv.label
+          ) {
+            anchor.setAttribute(
+              "data-cv-trigger",
+              "true"
+            );
+
+            anchor.setAttribute(
+              "aria-label",
+              "Open Curriculum Vitae"
+            );
+          } else {
+            anchor.target = "_blank";
+            anchor.rel =
+              "noopener noreferrer";
+          }
 
           linkRow.appendChild(anchor);
         }
@@ -1805,6 +2104,143 @@
       document.title =
         CONFIG.name +
         " — Portfolio";
+
+      const cvModal = $("#cv-modal");
+      const cvFrame = $("#cv-modal-frame");
+      const cvModalOpen = $("#cv-modal-open");
+      const cvModalClose = $("#cv-modal-close");
+      const cvFallback = $("#cv-modal-fallback");
+      const cvFallbackLink = $("#cv-modal-fallback-link");
+
+      let lastFocusedElement = null;
+      let cvLoadTimer = null;
+
+      function openCvModal() {
+        lastFocusedElement =
+          document.activeElement;
+
+        const embedUrl =
+          CONFIG.contact.cv.embedUrl ||
+          CONFIG.contact.cv.url;
+
+        const externalUrl =
+          CONFIG.contact.cv.url;
+
+        cvFallback.classList.remove(
+          "is-visible"
+        );
+
+        cvFrame.src = embedUrl;
+        cvModalOpen.href = externalUrl;
+        cvFallbackLink.href = externalUrl;
+
+        cvModal.classList.add(
+          "is-open"
+        );
+
+        cvModal.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.classList.add(
+          "modal-open"
+        );
+
+        cvModalClose.focus();
+
+        clearTimeout(cvLoadTimer);
+
+        cvLoadTimer = setTimeout(() => {
+          cvFallback.classList.add(
+            "is-visible"
+          );
+        }, 8000);
+      }
+
+      function closeCvModal() {
+        cvModal.classList.remove(
+          "is-open"
+        );
+
+        cvModal.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.classList.remove(
+          "modal-open"
+        );
+
+        clearTimeout(cvLoadTimer);
+
+        cvFrame.src = "";
+
+        if (
+          lastFocusedElement &&
+          typeof lastFocusedElement.focus ===
+            "function"
+        ) {
+          lastFocusedElement.focus();
+        }
+      }
+
+      cvFrame.addEventListener(
+        "load",
+        () => {
+          clearTimeout(cvLoadTimer);
+          cvFallback.classList.remove(
+            "is-visible"
+          );
+        }
+      );
+
+      document.addEventListener(
+        "click",
+        (event) => {
+          const trigger =
+            event.target.closest(
+              "[data-cv-trigger]"
+            );
+
+          if (!trigger) {
+            return;
+          }
+
+          event.preventDefault();
+          openCvModal();
+        }
+      );
+
+      cvModalClose.addEventListener(
+        "click",
+        closeCvModal
+      );
+
+      cvModal.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target === cvModal
+          ) {
+            closeCvModal();
+          }
+        }
+      );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            event.key === "Escape" &&
+            cvModal.classList.contains(
+              "is-open"
+            )
+          ) {
+            closeCvModal();
+          }
+        }
+      );
 
       const root =
         document.documentElement;
