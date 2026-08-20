@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jerald David Cane - Portfolio</title>
-  <meta name="description" content="Personal portfolio — about, experience, stack, and contact.">
+  <meta
+    name="description"
+    content="Personal portfolio — about, experience, stack, and contact."
+  >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -81,7 +92,9 @@
       font-size: 17px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      transition: background 0.35s ease, color 0.35s ease;
+      transition:
+        background 0.35s ease,
+        color 0.35s ease;
       position: relative;
     }
 
@@ -187,7 +200,9 @@
       height: 0%;
       background: var(--accent);
       z-index: 60;
-      transition: height 0.08s linear, background 0.35s ease;
+      transition:
+        height 0.08s linear,
+        background 0.35s ease;
     }
 
     .rail {
@@ -225,7 +240,9 @@
       border: none;
       cursor: pointer;
       padding: 0;
-      transition: background 0.2s, transform 0.2s;
+      transition:
+        background 0.2s,
+        transform 0.2s;
     }
 
     .rail-dot::after {
@@ -516,7 +533,7 @@
       color: var(--ink-soft);
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       transition: color 0.15s ease;
     }
 
@@ -526,7 +543,7 @@
 
     .hero .role-cv .cv-arrow {
       font-size: 12px;
-      opacity: 0.55;
+      opacity: 0.5;
       transform: translate(0, 0);
       transition:
         opacity 0.15s ease,
@@ -678,10 +695,17 @@
       color: var(--accent);
       margin-bottom: 12px;
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
     }
 
     .job-company-link {
       color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       transition: color 0.15s ease;
     }
 
@@ -689,6 +713,21 @@
       color: var(--ink);
       text-decoration: underline;
       text-underline-offset: 3px;
+    }
+
+    .company-arrow {
+      font-size: 11px;
+      opacity: 0.5;
+      text-decoration: none;
+      transform: translate(0, 0);
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .job-company-link:hover .company-arrow {
+      opacity: 1;
+      transform: translate(2px, -2px);
     }
 
     .job-points {
@@ -804,6 +843,14 @@
       content: '↗';
       font-size: 12px;
       opacity: 0.5;
+      transition:
+        opacity 0.15s,
+        transform 0.15s;
+    }
+
+    .link-row a:hover::after {
+      opacity: 1;
+      transform: translate(2px, -2px);
     }
 
     footer {
@@ -1087,7 +1134,7 @@
       <section
         class="section"
         id="contact"
-        style="border-bottom:none;"
+        style="border-bottom: none;"
       >
         <div class="ghost-num">04</div>
 
@@ -1284,8 +1331,7 @@
         cls,
         html
       ) => {
-        const element =
-          document.createElement(tag);
+        const element = document.createElement(tag);
 
         if (cls) {
           element.className = cls;
@@ -1347,8 +1393,7 @@
           "Go to " + section.label
         );
 
-        button.dataset.target =
-          section.id;
+        button.dataset.target = section.id;
 
         button.addEventListener(
           "click",
@@ -1365,19 +1410,17 @@
       });
 
       if (CONFIG.availability) {
-        const badge =
-          $("#availability-badge");
+        const badge = $("#availability-badge");
 
         badge.innerHTML =
           '<span class="dot"></span>' +
           esc(CONFIG.availability);
       } else {
-        $("#availability-badge")
-          .style.display = "none";
+        $("#availability-badge").style.display =
+          "none";
       }
 
-      const heading =
-        $("#hero-heading");
+      const heading = $("#hero-heading");
 
       heading.innerHTML =
         esc(CONFIG.heroHeading.line1) +
@@ -1388,8 +1431,7 @@
             : ""
         );
 
-      const role =
-        $("#hero-role");
+      const role = $("#hero-role");
 
       const roleText = create(
         "span",
@@ -1413,12 +1455,9 @@
           "role-cv"
         );
 
-        cvLink.href =
-          CONFIG.contact.cv.url;
-
+        cvLink.href = CONFIG.contact.cv.url;
         cvLink.target = "_blank";
-        cvLink.rel =
-          "noopener noreferrer";
+        cvLink.rel = "noopener noreferrer";
 
         const cvLabel = create(
           "span",
@@ -1446,8 +1485,7 @@
       $("#hero-tagline").textContent =
         CONFIG.tagline;
 
-      const photoSlot =
-        $("#hero-photo");
+      const photoSlot = $("#hero-photo");
 
       if (
         CONFIG.photo &&
@@ -1458,16 +1496,12 @@
           "hero-photo-frame"
         );
 
-        const image =
-          create("img");
+        const image = create("img");
 
-        image.src =
-          CONFIG.photo.url;
-
+        image.src = CONFIG.photo.url;
         image.alt =
           CONFIG.photo.alt ||
           CONFIG.name;
-
         image.loading = "eager";
 
         frame.appendChild(image);
@@ -1495,8 +1529,7 @@
         photoSlot.appendChild(frame);
       }
 
-      const aboutCopy =
-        $("#about-copy");
+      const aboutCopy = $("#about-copy");
 
       CONFIG.about.paragraphs.forEach(
         (paragraph) => {
@@ -1510,8 +1543,7 @@
         }
       );
 
-      const aboutFacts =
-        $("#about-facts");
+      const aboutFacts = $("#about-facts");
 
       CONFIG.about.facts.forEach(
         (fact) => {
@@ -1536,9 +1568,7 @@
             )
           );
 
-          aboutFacts.appendChild(
-            wrapper
-          );
+          aboutFacts.appendChild(wrapper);
         }
       );
 
@@ -1558,8 +1588,7 @@
             esc(job.period)
           );
 
-          const body =
-            create("div");
+          const body = create("div");
 
           body.appendChild(
             create(
@@ -1578,12 +1607,10 @@
             job.company &&
             job.company.url
           ) {
-            const companyLink =
-              create(
-                "a",
-                "job-company-link",
-                esc(job.company.name)
-              );
+            const companyLink = create(
+              "a",
+              "job-company-link"
+            );
 
             companyLink.href =
               job.company.url;
@@ -1593,6 +1620,31 @@
 
             companyLink.rel =
               "noopener noreferrer";
+
+            const companyName = create(
+              "span",
+              null,
+              esc(job.company.name)
+            );
+
+            const companyArrow = create(
+              "span",
+              "company-arrow",
+              "↗"
+            );
+
+            companyArrow.setAttribute(
+              "aria-hidden",
+              "true"
+            );
+
+            companyLink.appendChild(
+              companyName
+            );
+
+            companyLink.appendChild(
+              companyArrow
+            );
 
             company.appendChild(
               companyLink
@@ -1637,8 +1689,7 @@
         }
       );
 
-      const stackList =
-        $("#stack-list");
+      const stackList = $("#stack-list");
 
       CONFIG.stack.forEach(
         (group) => {
@@ -1698,12 +1749,8 @@
             esc(link.label)
           );
 
-          anchor.href =
-            link.url;
-
-          anchor.target =
-            "_blank";
-
+          anchor.href = link.url;
+          anchor.target = "_blank";
           anchor.rel =
             "noopener noreferrer";
 
@@ -1797,8 +1844,7 @@
         );
       }
 
-      const progress =
-        $("#progress");
+      const progress = $("#progress");
 
       const dots = Array.from(
         document.querySelectorAll(
@@ -1831,20 +1877,16 @@
               ) * 100
             : 0;
 
-        if (
-          window.innerWidth <= 860
-        ) {
+        if (window.innerWidth <= 860) {
           progress.style.width =
             percentage + "%";
 
-          progress.style.height =
-            "";
+          progress.style.height = "";
         } else {
           progress.style.height =
             percentage + "%";
 
-          progress.style.width =
-            "";
+          progress.style.width = "";
         }
 
         let activeIndex = 0;
@@ -1870,11 +1912,9 @@
                 element
                   .getBoundingClientRect()
                   .top <=
-                  window.innerHeight *
-                    0.4
+                  window.innerHeight * 0.4
               ) {
-                activeIndex =
-                  index;
+                activeIndex = index;
               }
             }
           );
